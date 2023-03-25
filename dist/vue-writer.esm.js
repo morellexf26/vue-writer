@@ -7,33 +7,29 @@ var script = defineComponent({
       type: Array,
       required: true
     },
-    eraseSpeed: {
-      type: Number,
-      default: 100
-    },
     typeSpeed: {
       type: Number,
-      default: 200
+      "default": 200
     },
     delay: {
       type: Number,
-      default: 2000
+      "default": 2000
     },
     intervals: {
       type: Number,
-      default: 500
+      "default": 500
     },
     start: {
       type: Number,
-      default: 0
+      "default": 0
     },
     caret: {
       type: String,
-      default: "cursor"
+      "default": "cursor"
     },
     iterations: {
       type: Number,
-      default: 0
+      "default": 0
     }
   },
   data: function data() {
@@ -59,6 +55,7 @@ var script = defineComponent({
         setTimeout(this.typewriter, this.typeSpeed);
       } else {
         this.count += 1;
+        this.onTyped(this.array[this.arrayIndex]);
 
         if (this.count === this.array.length) {
           loop += 1;
@@ -69,21 +66,10 @@ var script = defineComponent({
         }
 
         this.typeStatus = false;
-        setTimeout(this.eraser, this.delay);
       }
     },
-    eraser: function eraser() {
-      if (this.charIndex > 0) {
-        if (!this.typeStatus) this.typeStatus = true;
-        this.typeValue = this.array[this.arrayIndex].substring(0, this.charIndex - 1);
-        this.charIndex -= 1;
-        setTimeout(this.eraser, this.eraseSpeed);
-      } else {
-        this.typeStatus = false;
-        this.arrayIndex += 1;
-        if (this.arrayIndex >= this.array.length) this.arrayIndex = 0;
-        setTimeout(this.typewriter, this.typeSpeed + this.intervals);
-      }
+    onTyped: function onTyped(typedString) {
+      this.$emit("typed", typedString);
     }
   },
   created: function created() {
@@ -92,14 +78,14 @@ var script = defineComponent({
 });
 
 var _hoisted_1 = {
-  class: "is-typed"
+  "class": "is-typed"
 };
 var _hoisted_2 = {
-  class: "typed"
+  "class": "typed"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock("div", _hoisted_1, [renderSlot(_ctx.$slots, "default"), createVNode("span", _hoisted_2, toDisplayString(_ctx.typeValue), 1), createVNode("span", {
-    class: _ctx.caret + ' ' + {
+    "class": _ctx.caret + ' ' + {
       typing: _ctx.typeStatus
     }
   }, " ", 2)]);

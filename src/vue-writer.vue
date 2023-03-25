@@ -8,10 +8,6 @@ export default defineComponent({
       type: Array,
       required: true,
     },
-    eraseSpeed: {
-      type: Number,
-      default: 100,
-    },
     typeSpeed: {
       type: Number,
       default: 200,
@@ -70,24 +66,6 @@ export default defineComponent({
         }
 
         this.typeStatus = false;
-
-        setTimeout(this.eraser, this.delay);
-      }
-    },
-    eraser() {
-      if (this.charIndex > 0) {
-        if (!this.typeStatus) this.typeStatus = true;
-        this.typeValue = this.array[this.arrayIndex].substring(
-          0,
-          this.charIndex - 1
-        );
-        this.charIndex -= 1;
-        setTimeout(this.eraser, this.eraseSpeed);
-      } else {
-        this.typeStatus = false;
-        this.arrayIndex += 1;
-        if (this.arrayIndex >= this.array.length) this.arrayIndex = 0;
-        setTimeout(this.typewriter, this.typeSpeed + this.intervals);
       }
     },
     onTyped(typedString) {

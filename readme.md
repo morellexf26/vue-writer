@@ -120,19 +120,6 @@ export default {
 
 - note: higher the number the slower the typing speed is.
 
-#### `eraseSpeed`
-
-- type: Number
-- default: 100
-- required: false
-- usage:
-
-```html
-<vue-writer :array="arr" :eraseSpeed="50" :typeSpeed="100" />
-```
-
-- note: this prop controls how fast each character is erased in second intervals.
-
 #### `delay`
 
 - type: Number
@@ -141,7 +128,7 @@ export default {
 - usage
 
 ```html
-<vue-writer :array="arr" :eraseSpeed="50" :typeSpeed="100" :delay="1000" />
+<vue-writer :array="arr" :typeSpeed="100" :delay="1000" />
 ```
 
 - note: 1000 = 1 second
