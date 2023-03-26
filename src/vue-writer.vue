@@ -81,7 +81,7 @@ export default defineComponent({
 <template>
   <div class="is-typed">
     <slot />
-    <span class="typed">{{ typeValue }}</span>
+    <span class="typed" v-html="typeValue"></span>
     <span :class="caret + ' ' + { typing: typeStatus }">&nbsp;</span>
   </div>
 </template>

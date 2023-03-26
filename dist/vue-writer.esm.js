@@ -1,4 +1,4 @@
-import { defineComponent, openBlock, createBlock, renderSlot, createVNode, toDisplayString } from 'vue';
+import { defineComponent, openBlock, createBlock, renderSlot, createVNode } from 'vue';
 
 var script = defineComponent({
   name: "VueWriter",
@@ -80,11 +80,11 @@ var script = defineComponent({
 var _hoisted_1 = {
   "class": "is-typed"
 };
-var _hoisted_2 = {
-  "class": "typed"
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock("div", _hoisted_1, [renderSlot(_ctx.$slots, "default"), createVNode("span", _hoisted_2, toDisplayString(_ctx.typeValue), 1), createVNode("span", {
+  return openBlock(), createBlock("div", _hoisted_1, [renderSlot(_ctx.$slots, "default"), createVNode("span", {
+    "class": "typed",
+    innerHTML: _ctx.typeValue
+  }, null, 8, ["innerHTML"]), createVNode("span", {
     "class": _ctx.caret + ' ' + {
       typing: _ctx.typeStatus
     }

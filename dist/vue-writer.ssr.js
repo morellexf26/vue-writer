@@ -133,11 +133,11 @@ function _nonIterableRest() {
 });var _hoisted_1 = {
   "class": "is-typed"
 };
-var _hoisted_2 = {
-  "class": "typed"
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return vue.openBlock(), vue.createBlock("div", _hoisted_1, [vue.renderSlot(_ctx.$slots, "default"), vue.createVNode("span", _hoisted_2, vue.toDisplayString(_ctx.typeValue), 1), vue.createVNode("span", {
+  return vue.openBlock(), vue.createBlock("div", _hoisted_1, [vue.renderSlot(_ctx.$slots, "default"), vue.createVNode("span", {
+    "class": "typed",
+    innerHTML: _ctx.typeValue
+  }, null, 8, ["innerHTML"]), vue.createVNode("span", {
     "class": _ctx.caret + ' ' + {
       typing: _ctx.typeStatus
     }
